@@ -109,3 +109,143 @@
     * Common permissions at group level
     * Specific permissions at user level
 * AWS Policies either allow or deny access
+
+* AWS supports two types of block storage (for `virtual hard disk storage`) :
+    1. _**Elastic Block Storage**_ :
+        * Mounted from a different host in Same _**AZ (Availability Zone)**_
+        * This is _**Persistent Storage (Non-Ephemeral)**_
+        * EBS volumes can exist even after ec2 is deleted
+    2. _**Instance Storage**_ :
+        * Mounted from same host
+        * This is _**Volatile Storage (Ephemeral)**_ 
+        * Shutdown of ec2 will wipe the data adn termination (deletion) of ec2 instance will delete the disks
+
+    ![Alt text](shots/5.PNG)
+    ![Alt text](shots/6.PNG)
+
+* EC2 charges:
+    * Charge for instance type
+    * Charge for EBS volumes
+    * Charge for OS (for some AMI's)
+* AWS EC2 mandates all the OS disks should be EBS volumes
+* Only few EC2 instance types support instance storage
+
+
+
+### AWS EC2 Lifecycle
+
+* Instance states
+
+![Alt text](shots/7.PNG)
+
+* Official doc's on instance `Life cycle` :
+
+    [Refer here : https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html ]
+
+### EC2 Instance Types
+
+* _**Instance Family**_ : This is hardware specification of Host (T, C, M etc) and then they have generations (t1, t2, t3, c1, c5)
+* _**Instance Size**_ : Generally this is a multiplication factor
+    * nano
+    * micro
+    * small
+    * medium
+    * large
+    * xlarge
+    * 2xlarge
+* Instance size also speaks about networking performance
+* Purpose based Instance Families :
+
+    [Refer here : https://aws.amazon.com/ec2/instance-types/ ]
+
+![Alt text](shots/8.PNG)
+
+### IAM Policies
+
+* IAM Policy is a `JSON Document`
+
+### JSON (Java Script Object Notation)
+
+* We use JSON to represent data
+* JSON represents data in the form of `name-value` pairs
+```
+name           value
+qualificiation Btech
+course         AWS
+```
+* Name-value is represented in the form of `"<name>": <value>`
+```
+"qualificiation": Btech
+"course": AWS
+```
+* Value can be of different types categorized into
+    1. _**Simple**_ :
+        * _**Text/String**_ : we use quotes
+            "qualificiation": "BTech"
+            "Course": "AWS"
+        * _**Number**_ :
+            "duration": 90
+        * _**Boolean**_ : two values are possible `true or false`
+            "isOnline": true
+    2. _**Complex**_ :
+        * _**list/array**_ : This is represented in `[]` 
+            "colors": ["Red", "White"]
+        * _**object/dictionary**_ : This is represented in `{ }` 
+            {
+            "Street": 2,
+            "Building": "Nilgiri",
+            "Landmark": "Ameerpet Metro",
+            "City": "Hyderabad"
+            }
+* _**Example-1**_ : Let's write a JSON File representing movie details :
+```
+{
+    "Name": "RRR",
+    "Director": "SS Rajamouli",
+    "Cast": [
+        "Ram Charan",
+        "NTR",
+        "Alia Bhatt"
+    ],
+    "Budget In Crores": 550,
+    "Ratings": {
+        "IMDB": 7.9,
+        "RottenTomatoes": 95,
+        "facebook": 5
+    }
+}
+```
+* _**Example-2**_ : Write a JSON File representing your favorite holiday destination :
+```
+{
+    "Place": "Vishakapatnam",
+    "Highlights": {
+        "Spots": ["RK Beach", "Bheemili", "Araku" ],
+        "Food": ["Banana Delight", "Seafood"],
+        "Shopping": [] 
+    }
+}
+```
+* _**Example-3**_ : Write a JSON to represent favorite subject of yours. The structure should be as follows :
+```
+{
+    Name = Text
+    When = Text (one of School, Intermediate, Graduation, PG )
+    Topics = list of text
+}
+```
+* _**Example-4**_ : Let's write some values
+```
+{
+    "Name": "Design and Analysis of Algorithms",
+    "When": "Graduation",
+    "Topics": [
+        "Space Complexity",
+        "Time Complexity"
+    ]
+}
+```
+* Generally we would be following structure provided by AWS for `IAM Policies` :
+
+    [Refer here : https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html ]
+

@@ -416,3 +416,285 @@ arn:aws:ec2:ap-south-1:*:instance/*
 * Login in as user 1 and check cloud trail
 * Login in as user 2 and check cloud trail
 * Login in as root and check cloud trail
+
+### Multiple Account Management via AWS Organizations
+
+* AWS Organizations let us manage and govern multiple accounts from one place
+
+
+
+
+
+* Service Control Policies 
+
+    [Refer Here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html ]
+
+* For scp syntax
+
+    [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html ]
+    
+* For ec2 sample
+
+    [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_ec2.html ] 
+    
+* For tagging samples
+
+    [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.html ]
+
+### AWS Access Analyzer
+
+* Create an OU with Called Learning and add your aws account under that
+* Go to IAM Access Analyzers and add new analyzer for OU   
+
+### Infrastructure as Code (IaC)
+
+* This represents expressing infra as a Desired state and let the IaC tool do the rest
+* Popular IaC tools
+    * Terraform
+    * Cloud Formation
+    * ARM Templates
+    * Azure Bicep
+
+### AWS Cloudformation
+
+* AWS Cloudformation, allows us to express the desired state in `JSON or YAML` format and when executed (Created stack) will create infra
+* Workflow :
+    * Author a template
+    * upload to s3 directly or indirectly
+    * Creates changeset (what has to be created/updated)
+    * Executes to realize infra
+
+![Alt text](shots/9.PNG)
+
+* For CF concepts
+
+    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html ]
+
+* _**Template**_ : Desired state expressed in JSON or YAML
+* _**Stack**_ : Represents the execution of Template
+* _**Changeset**_ : This represents the infra to be updated/created/deleted.
+* To author an Cloud formation template, we need :
+    * JSON/YAML Knowledge
+    * Manual steps for how to create infra
+    * Productivity:
+        * Visual Studio Code with Cloud formation extension
+
+
+
+## Cloud formation Template Grammar/Syntax
+
+* For AWS CF Template syntax
+
+    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html ]
+
+* JSON
+```
+{
+  "AWSTemplateFormatVersion" : "version date",
+
+  "Description" : "JSON string",
+
+  "Metadata" : {
+    template metadata
+  },
+
+  "Parameters" : {
+    set of parameters
+  },
+
+  "Rules" : {
+    set of rules
+  },
+
+  "Mappings" : {
+    set of mappings
+  },
+
+  "Conditions" : {
+    set of conditions
+  },
+
+  "Transform" : {
+    set of transforms
+  },
+
+  "Resources" : {
+    set of resources
+  },
+
+  "Outputs" : {
+    set of outputs
+  }
+}
+```
+* YAML
+```
+---
+AWSTemplateFormatVersion: "version date"
+
+Description:
+  String
+
+Metadata:
+  template metadata
+
+Parameters:
+  set of parameters
+
+Rules:
+  set of rules
+
+Mappings:
+  set of mappings
+
+Conditions:
+  set of conditions
+
+Transform:
+  set of transforms
+
+Resources:
+  set of resources
+
+Outputs:
+  set of outputs
+```
+* Template sections 
+
+    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html#template-anatomy-sections ]
+
+* For now let's look at three template sections :
+    
+    1. Format Version: 
+    
+    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html ]
+
+    2. Description 
+    
+    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html ]
+
+    3. Resources 
+    
+    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html ]
+
+* Skeleton(JSON):
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Resources": {
+
+    }
+}
+```
+* Skeleton (YAML):
+```
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ''
+Resources: {}
+```
+### Activity-1: Create an S3 bucket using Cloud formation
+
+* Way of Working (WoW):
+    * Manual steps for creation
+    * Let's make a note of inputs which we provide while creating s3 bucket
+* Manual Steps:
+
+
+
+
+
+
+
+
+* Search for resource type and syntax
+
+
+
+* s3 resource in cloud formation 
+
+    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html ]
+
+* For the template created
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/9e251a96bc6a840265eac7e850020634a6925bb3 ]
+
+* Create stack:
+
+
+
+
+
+
+
+
+
+### Activity-2: Create a VPC
+
+* For manual steps
+
+    [Refer here : https://directdevops.blog/2023/03/17/devops-classroomnotes-17-mar-2023/ ]
+
+* Inputs
+    * Name tag
+    * cidr: 192.168.0.0/16
+* Create stack from the template
+
+
+
+### Exercise :
+
+* Create a cloud formation template to :
+    * Create a user in IAM
+    * Create a group in IAM
+
+## AWS Cloud formation
+### Overall architecture
+
+* Overview
+
+![Alt text](shots/10.PNG)
+
+### Create VPC
+
+* For the changes done
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/446019c53c0abd2840f5f2183bfb905c066ab89e#diff-88dfb32faa4e9964e5eaaea431c705d18c5e1731888b578caf2eeb955795d92d ]
+
+* Create a stack
+
+
+
+* Let's define parameters to make CIDR range of VPC dynamic, for parameters official doc's
+
+    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html ]
+
+* To use the parameter use `ref function`, for the changeset
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/4337cc5e4467bb469b0f3d149a5e2e978de96392 ]
+
+* Updating the properties might lead to
+    * _**Replacement**_ : Delete and recreate
+    * _**No Interuption**_ : Modify on existing resource
+* Let's add subnets
+    * For the changes done to add web1 subnet
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/60a3ad1b4c43386fbbb16e488873d734b6ba1fa2 ]
+
+    * Now update the stack
+
+
+
+* For the changes done to add 3 more subnets
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/8f943203821c08e1818e1e70fe5227de3a2566ec ]
+
+
+
+
+* web1, db1 subnets should be in AZ-a and web2, db2 subnets should be in AZ-b
+* Cloud formation supports AWS specific parameter types
+* Use AZ parameter as done in this changeset
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/daa16933df0b0327719dfec27af6cf6edf30c55d ]

@@ -777,28 +777,28 @@ Resources: {}
 
 ### Activities
 
-* Create an buntu ami and install nginx in it
-    * command: 
+* Create an Ubuntu AMI and install nginx in it
+    * Command : 
     ```
     sudo apt update && sudo apt install nginx -y
     ```
-    * output: 
+    * Output : 
     ```
     http://<publicip>
     ```
-    * This requires:
-        * Creating a security group with 80 port opened
+    * This requires :
+        * Creating a security group with `80` port opened
 * For approximate answer
 
     [Refer here : https://github.com/asquarezone/awsadministration/commit/5410ea4b88afaaf40ea54f4323849f605864f2c8 ]
 
-* For creating stack from cli the follwing command was used
+* For creating stack from CLI the follwing command was used
 ```
 aws cloudformation create-stack --stack-name 'activity3' --template-body 'file://activity3.json' --parameters "ParameterKey=ami,ParameterValue=ami-0fcf52bcf5db7b003" "ParameterKey=keypair,ParameterValue=my_id_rsa" "ParameterKey=sg,ParameterValue=sg-05adaf452b268c335" "ParameterKey=subnetid,ParameterValue=subnet-09be7bc355f4c0475"
 ```
 ### Activity-4
 
-* Create an ecs cluster
+* Create an ECS cluster
 * Create a task defintion
     * image => nginx
     * name => nginx

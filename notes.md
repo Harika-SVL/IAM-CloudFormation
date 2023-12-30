@@ -698,3 +698,50 @@ Resources: {}
 * Use AZ parameter as done in this changeset
 
     [Refer here : https://github.com/asquarezone/awsadministration/commit/daa16933df0b0327719dfec27af6cf6edf30c55d ]
+
+### Database Creation from Cloudformation
+
+* To Create rds database we need to create
+    * dbsubnet group: where we select subnets to create rds instance
+    * security group:
+        * mysql:
+            * incoming/ingress:
+                * port: 3306
+                * cidr: vpc cidr
+* For the changes done
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/4b03bbab2650d11716d5ba7573095adf644c6dbf ]
+
+
+
+
+* Exercise: Try adding parameters for
+    * portno
+    * engine: mysql,postgres
+    * dbinstance name:
+    * dbinstance class
+    * dbsize:
+    * dbtype
+* For the parameter engine added
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/26decca3acb8fb465b57b66846c4e17e3645e5c8 ]
+
+### Creating ec2 instance using Cloudformation
+
+* We will be installing apache server in ubuntu 22.04
+* Things to be created
+    * Security group with 22 and 80 port opened to all. For the changes done
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/82d6001da630c1927aec21df977edd38db6f2869 ]
+
+* Things to be figured out
+    * AMI id of ubuntu22.04:
+    * key pair to be passed
+    * instance type to passed
+    * subnet in which ec2 instance has to be created
+* Let's create ec2 based on Refer Here cloudformation spec
+* For the changes done.
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/79360f7f8fda5a36eb7d4ba507fde789da58bd21 ]
+    
+* This created an ec2 instance but it didn’t had public ip address

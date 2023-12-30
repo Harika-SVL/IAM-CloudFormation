@@ -745,3 +745,41 @@ Resources: {}
     [Refer here : https://github.com/asquarezone/awsadministration/commit/79360f7f8fda5a36eb7d4ba507fde789da58bd21 ]
     
 * This created an ec2 instance but it didn’t had public ip address
+
+
+
+* Make necessary changes in the template to associate public ip address, for the changes
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/535a4e2cea3e3d91cdaee723e5808bdb6a22eb6f ]
+
+
+
+
+* Let's try logging into machine
+
+
+
+* The ssh connection is timed out the reason for that is vpc is private.
+* To give internet connectivity to vpc
+    * create and attach internet gateway
+    * create a route table with route to internet gateway for anywhere (0.0.0.0/0)
+    * assoicate this route table to web1 and web2 subnets
+* For the changes done
+
+    [Refer here : https://github.com/asquarezone/awsadministration/commit/e850e28a2ad70942690fc0928d8fa6e62f43e875 ]
+
+* For functions 
+
+    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html ]
+
+### Activities
+
+* Create an ubuntu ami and install nginx in it
+    * command: sudo apt update && sudo apt install nginx -y
+    * output: http://<publicip>
+    * This requires:
+        * Creating a security group with 80 port opened
+* For approximate answer
+
+    [Refer here :  ]
+* For creating stack from cli the follwing command was used

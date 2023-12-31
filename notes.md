@@ -85,29 +85,36 @@
 ![Alt text](shots/10.PNG)
 ![Alt text](shots/11.PNG)
 
-* Let's login => Navigate to console in other browser or incognito
+* Let's login => Navigate to console in  incognito with the link got created for the user with credentials created
 
-    [Refer here :  ]
+    [Refer here : https://068335970509.signin.aws.amazon.com/console]
 
 ![Alt text](shots/12.PNG)
+![Alt text](shots/13.PNG)
 
+* Root user has access to every thing,but IAM user cannot access the same as no policies given
 
+![Alt text](shots/14.PNG)
 
+* The user `tony stark` doesnot have _**authorization**_ , so nothing can be created also with the user login
 
+![Alt text](shots/15.PNG)
 
-
-
-* Root user has access to every thing
-
-
-
-* The user `tony stark` doesnot have _**authorization**_
 * Now let's try to give `tonystark` some permissions by `attaching policies`
 
+=> Go to root user => Navigate to IAM => Users => select the `tonystark` user => select Add permissions
 
+![Alt text](shots/16.PNG)
 
+=> Attach policies directly => AmazonS3FullAccess => Next => Add permissions
 
+![Alt text](shots/17.PNG)
+![Alt text](shots/18.PNG)
 
+* Now after giving the permissions it gives access to the resources already created ( and this only works for the permissions of resources given not for all the resources of root account )
+
+![Alt text](shots/19.PNG)
+![Alt text](shots/20.PNG)
 
 ### Exercise
 

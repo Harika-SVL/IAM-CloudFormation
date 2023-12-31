@@ -49,7 +49,7 @@
 
 * Every AWS account will have `Unique account Id`
 
-
+  ![Alt text](shots/5.PNG)
 
 * For everything you create in AWS will have unique _**ARN (Amazon Resource Name)**_
 * Who can login into AWS? 
@@ -120,7 +120,7 @@
         * This is _**Volatile Storage (Ephemeral)**_ 
         * Shutdown of ec2 will wipe the data adn termination (deletion) of ec2 instance will delete the disks
 
-    ![Alt text](shots/5.PNG)
+    ![Alt text](shots/5-1.PNG)
     ![Alt text](shots/6.PNG)
 
 * EC2 charges:

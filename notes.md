@@ -121,15 +121,105 @@
 * Create two IAM users _**(dev1, dev2)**_ and attach both of them to `AmazonEC2FullAccess Policy`
 * Create two IAM users _**(test1, test2)**_ and attach both of them to `AmazonEC2ReadOnlyAccess Policy`
 * Login with all the four credentails and verify the access
+
+[ _**NOTE**_ : Instead of doing lengthy with 4 users we create groups as follows for similar permissions given users to simplify the process ]
+
 * Create two user groups _**developers**_ with `AmazonEC2FullAccess policy` and _**testers**_ with `AmazonEC2ReadOnlyAccess`
 
+=> User groups => group name => attach policy by searching => Create group
 
+![Alt text](shots/21.PNG)
+
+* Now create users ( dev1, dev2, test1, test2 ) adding them to the respective groups with the policies required
+
+![Alt text](shots/22.PNG)
+![Alt text](shots/23.PNG)
 
 * This approach is useful for giving access based on user roles in your organization
 * Best Practice is to give :
     * Common permissions at group level
     * Specific permissions at user level
-* AWS Policies either allow or deny access
+    * AWS Policies either allow or deny access
+
+### AWS Managed Policies
+
+* Policies given aws by default are referred as Managed Policies
+* These are generic policies created and managed by aws
+
+
+
+### AWS Customer Managed Policies
+
+* These are custom policies defined by AWS USers for custom permissions.
+* To Create Policies we need to understand
+    * Service
+    * Resource
+    * Actions
+
+* For the Actions, services and condition keys
+
+    [Refer here : https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html ]
+
+* Let's try to give an access to testers to start and stop ec2 instances
+    * To start and stop ec2 user should be able to view ec2 instances
+    * The actions which we have sorted are
+        * StartInstances
+        * StopInstances
+        * DescribeInstances
+* Resources in this case is any ec2
+* Let's create a custom IAM policy
+
+
+
+* Choose service ec2 and then actions
+
+
+
+
+
+
+
+* Now let's assign this to testers group
+
+
+
+* Now let's login in and test the access
+
+
+
+
+* This user will be able to view, start and stop ec2 instances
+* The policy which we created from ui creates a json file
+```
+json
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "VisualEditor0",
+"Effect": "Allow",
+"Action": [
+"ec2:DescribeInstances",
+"ec2:StartInstances",
+"ec2:StopInstances"
+],
+"Resource": "*"
+}
+]
+}
+```
+### Try Creating an iam policy for
+
+* any s3 bucket read, delete
+* any ec2 view and terminate ec2 instances
+
+
+
+### Next Steps
+
+* Write policies in JSON
+* Use Simulator to test the policies
+* Exercise: Refer Here
 
 * AWS supports two types of block storage (for `virtual hard disk storage`) :
     1. _**Elastic Block Storage**_ :

@@ -47,35 +47,49 @@
 
     ![Alt text](shots/4.PNG)
 
-* Every AWS account will have `Unique account Id`
+* Every AWS account will have unique `Account Id`
 
   ![Alt text](shots/5.PNG)
 
 * For everything you create in AWS will have unique _**ARN (Amazon Resource Name)**_
-* Who can login into AWS? 
-    * Users (_**IAM Users**_)
+
+* Who can login into AWS? (_**IAM Users**_)
+    * Users 
     * Applications
 * Sometimes we might give access to an AWS Resource to access other AWS resources (_**IAM Roles**_)
-* In _**AWS Authorization**_ is provided by _**IAM Policies**_
+* In AWS _**Authorization**_ is provided by _**IAM Policies**_
 * In AWS we have two kinds of policies :
-    * _**AWS Managed Policies**_ : Policies written by AWS which are available for usage in all AWS Accounts
-    * _**Customer Managed Policies**_ : These are created and maintained by Customers
+    1. _**AWS Managed Policies**_ : Policies written by AWS which are available for usage in all AWS Accounts
+    2. _**Customer Managed Policies**_ : These are created and maintained by Customers
 
 ### Let's create a user( IAM User ) to access console
 
 * Navigate to IAM :
 
+  ![Alt text](shots/6.PNG)
 
+=> Users=> Create user
 
+![Alt text](shots/7.PNG)
 
+=> Username : tonystark => provide access => want to create IAM user
 
-* Don't give any policies
+![Alt text](shots/8.PNG)
 
+=> Custom password : Tony@stark => Next
 
+![Alt text](shots/9.PNG)
+
+* Don't give any policies => Next => Create user
+
+![Alt text](shots/10.PNG)
+![Alt text](shots/11.PNG)
 
 * Let's login => Navigate to console in other browser or incognito
 
-    [Refer here : https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_ap-southeast-2_3a0734d9f5ba9d03&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=KRkOvsfG2_q3Orwvs8OhZS4iO9tnCaGACZo1xkflIik&code_challenge_method=SHA-256 ]
+    [Refer here :  ]
+
+![Alt text](shots/12.PNG)
 
 
 

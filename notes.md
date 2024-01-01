@@ -235,16 +235,68 @@
 ```
 ### Excercise : Try Creating an IAM policy 
 
+* Create new `S3` named policy give both access as follows :
+
 1. any s3 bucket read, delete
 2. any ec2 view and terminate ec2 instances
 
+=> select Service : s3 => search actions : bucket => select `ListBucket`, `DeleteBucket` => select Resources : ALL => select Service : EC2 => search actions : instances => select `DescribeInstances`, `TerminateInstances` => select Resources : ALL => Next => Name : custom_2 => Description : Both EC2 and S3 policies => Create policy
 
+![Alt text](shots/41.PNG)
+
+* Add this `custom_2` to testers group deleting the `custom_1`
+
+![Alt text](shots/42.PNG)
+
+* Try login in as `test1` user and work on to check the policies working or not
 
 ### Next Steps
 
 * Write policies in JSON
 * Use Simulator to test the policies
-* Exercise: Refer Here
+* Exercise: 
+
+    [ Refer Here : https://www.youtube.com/watch?v=ggOmHlnhPaM&list=PLuVH8Jaq3mLud3sVDvJ-gJ__0zd15wGDd&index=16 ]
+
+### IAM Policies
+
+* IAM Policy is a `JSON` Document
+
+### JSON (Java Script Object Notation)
+
+* We use `JSON` to represent data
+* JSON represents data in the form of name-value pairs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 * AWS supports two types of block storage (for `virtual hard disk storage`) :
     1. _**Elastic Block Storage**_ :

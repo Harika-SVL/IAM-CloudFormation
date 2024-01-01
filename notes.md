@@ -146,7 +146,7 @@
 * Policies given aws by default are referred as Managed Policies
 * These are generic policies created and managed by aws
 
-
+![Alt text](shots/24.PNG)
 
 ### AWS Customer Managed Policies
 
@@ -160,14 +160,14 @@
 
     [Refer here : https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html ]
 
-* Let's try to give an access to testers to start and stop ec2 instances
+* Let's try to give an access to `testers` to _**start and stop ec2 instances**_
     * To start and stop ec2 user should be able to view ec2 instances
     * The actions which we have sorted are
         * StartInstances
         * StopInstances
         * DescribeInstances
 * Resources in this case is any ec2
-* Let's create a custom IAM policy
+* Let's create a `Custom IAM policy`
 
 
 

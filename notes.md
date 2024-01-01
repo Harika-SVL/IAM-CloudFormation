@@ -169,49 +169,74 @@
 * Resources in this case is any ec2
 * Let's create a `Custom IAM policy`
 
+=> Navigate to IAM => Policies => Create policy 
 
+![Alt text](shots/25.PNG)
 
-* Choose service ec2 and then actions
+* Choose service `ec2` and then actions
 
+=> choose service : EC2 => search : instances => check for `DescribeInstances`, `StartInstances`, `StopInstances`
 
+![Alt text](shots/26.PNG)
+![Alt text](shots/27.PNG)
 
+=> Resources => select All => Next 
 
+![Alt text](shots/28.PNG)
 
+=> Name : custom_1 => Description : This is custom policy created for learning purposes => Create policy
 
+![Alt text](shots/29.PNG)
+![Alt text](shots/30.PNG)
 
-* Now let's assign this to testers group
+=> check policies
 
+![Alt text](shots/31.PNG)
 
+* Now let's assign this to `testers` group (create a group without any policies)
 
-* Now let's login in and test the access
+=> Create `testers` group with a user `test1` => select the group => attach policies
 
+![Alt text](shots/32.PNG)
 
+=> search : policies => select the created policy from Customer managed => Attach policy
 
+![Alt text](shots/33.PNG)
+![Alt text](shots/34.PNG)
+
+* Now let's login in and test the access (open over the incognito window), also create an instance in another region to work on
+
+![Alt text](shots/35.PNG)
+![Alt text](shots/36.PNG)
+![Alt text](shots/37.PNG)
+![Alt text](shots/38.PNG)
+![Alt text](shots/39.PNG)
 
 * This user will be able to view, start and stop ec2 instances
-* The policy which we created from ui creates a json file
-```
-json
-{
-"Version": "2012-10-17",
-"Statement": [
-{
-"Sid": "VisualEditor0",
-"Effect": "Allow",
-"Action": [
-"ec2:DescribeInstances",
-"ec2:StartInstances",
-"ec2:StopInstances"
-],
-"Resource": "*"
-}
-]
-}
-```
-### Try Creating an iam policy for
+* The policy which we created from `UI` creates a `JSON` file
 
-* any s3 bucket read, delete
-* any ec2 view and terminate ec2 instances
+![Alt text](shots/40.PNG)
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+### Excercise : Try Creating an IAM policy 
+
+1. any s3 bucket read, delete
+2. any ec2 view and terminate ec2 instances
 
 
 

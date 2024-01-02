@@ -491,8 +491,43 @@ course         AWS
 arn:aws:ec2:ap-south-1:*:instance/*
 ```
 * For the IAM policy
-
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/b1f1c4f665b75dcfe1b51dc0999f7a726dcf3426 ]
+* _**skeleton.json**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": [],
+            "Resource": []
+        }
+    ]
+}
+```
+* _**activity-4.json**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": [
+                "ec2:Describe*", 
+                "ec2:StartInstances", 
+                "ec2:StopInstances"
+            ],
+            "Resource": ["arn:aws:ec2:ap-south-1:*:instance/*"]
+        },
+        {
+            "Effect" : "Allow",
+            "Action": [
+                "ec2:Describe*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ### Activity-5: Create an IAM Policy to allow user to delete bucket if the region is only us-west-2
 

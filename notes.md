@@ -278,24 +278,23 @@ course         AWS
 ```
 * Value can be of different types categorized into
     1. _**Simple**_ :
-        * _**Text/String**_ : we use quotes
-            "qualificiation": "BTech"
-            "Course": "AWS"
+        * _**Text/String**_ : we use quotes `""`
+            `"qualificiation": "BTech"`
+            `"Course": "AWS"`
         * _**Number**_ :
-            "duration": 90
+            `"duration": 90`
         * _**Boolean**_ : two values are possible `true or false`
-            "isOnline": true
+            `"isOnline": true`
     2. _**Complex**_ :
         * _**list/array**_ : This is represented in `[]` 
-            "colors": ["Red", "White"]
+            `"colors": ["Red", "White"]`
         * _**object/dictionary**_ : This is represented in `{ }` 
-            {
-            "Street": 2,
-            "Building": "Nilgiri",
-            "Landmark": "Ameerpet Metro",
-            "City": "Hyderabad"
-            }
-* _**Example-1**_ : Let's write a JSON File representing movie details :
+            `{`            `"Street": 2,`
+            `"Building": "Nilgiri",`
+            `"Landmark": "Ameerpet Metro",`
+            `"City": "Hyderabad"`
+            }`
+* _**Example-1**_ : Let's write a JSON File representing movie details 
 ```
 {
     "Name": "RRR",
@@ -313,7 +312,7 @@ course         AWS
     }
 }
 ```
-* _**Example-2**_ : Write a JSON File representing your favorite holiday destination :
+* _**Example-2**_ : JSON File representing your favorite holiday destination 
 ```
 {
     "Place": "Vishakapatnam",
@@ -324,7 +323,7 @@ course         AWS
     }
 }
 ```
-* _**Example-3**_ : Write a JSON to represent favorite subject of yours. The structure should be as follows :
+* _**Example-3**_ : JSON file to represent favorite subject of yours. The structure should be as follows :
 ```
 {
     Name = Text

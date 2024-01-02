@@ -195,7 +195,7 @@
 
 * Now let's assign this to `testers` group (create a group without any policies)
 
-=> Create `testers` group with a user `test1` => select the group => attach policies
+=> Create `group : testers` group with a user `user : test1` and `password: test1@password` => select the group => attach policies
 
 ![Alt text](shots/32.PNG)
 
@@ -383,9 +383,45 @@ course         AWS
 
     [Refer Here : https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html ]
 
-* For the changes :
+* Create a policy
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/177594de2d43d92e785891c841346addae706507 ]
+=> Navigate to IAM => policies => Create policy => click on JSON => paste `activity-1.json` => Next
+*  _**activity-1.json**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": [
+                "ec2:Describe*", 
+                "ec2:StartInstances", 
+                "ec2:StopInstances"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+![Alt text](shots/43.PNG)
+
+=> Name : activity_1 => Create policy
+
+![Alt text](shots/44.PNG)
+
+=> Change the permissions for the `testers` group with new policy => simulate => Select Service : EC2 => Select All => Run Simulation ( Some are denied and some are allowed )
+
+![Alt text](shots/45.PNG)
+![Alt text](shots/46.PNG)
+![Alt text](shots/47.PNG)
+
+* To also check over UI
+
+=> From dashboard take the `URL` and open over ignito window => login with user
+
+![Alt text](shots/48.PNG)
+![Alt text](shots/49.PNG)
+![Alt text](shots/50.PNG)
 
 ### Activity-2: Create a custom IAM policy to perform any operation on EC2 but not terminate instances
 

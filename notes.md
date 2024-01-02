@@ -453,9 +453,29 @@ course         AWS
 
 ### Activity-3: Create a Custom IAM Policy to perform any operation on s3, rds and ec2 but stop users from terminating, stopping ec2 and rds instances and removing s3 buckets
 
-* For changeset
+* _**activity-3.json**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": ["ec2:*", "rds:*","s3:*"],
+            "Resource": "*"
+        },
+        {
+            "Effect" : "Deny",
+            "Action": ["ec2:TerminateInstances", "rds:DeleteDBInstance", "s3:DeleteBucket"],
+            "Resource": "*"
+        }
+    ]
+}
+```
+* Here we can perform any action over instances but we get error while we try to terminate the instance, terminate rds instance and delete bucket
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/2ac6be507930d2af53c57fb0bc2ffb08c89160a4 ]
+![Alt text](shots/54.PNG)
+![Alt text](shots/55.PNG)
+![Alt text](shots/56.PNG)
 
 ### Activity-4: Create an IAM Policy to Start and Stop Ec2 instances
 

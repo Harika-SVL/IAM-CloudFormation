@@ -425,9 +425,31 @@ course         AWS
 
 ### Activity-2: Create a custom IAM policy to perform any operation on EC2 but not terminate instances
 
-* For the changes
+* _**activity-2.json**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": ["ec2:*"],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": ["ec2:TerminateInstances"],
+            "Resource": "*",
+            "Effect": "Deny"
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/6cda99ec36c1cffc7752b4356b181c9d83741489 ]
+        }
+
+    ]
+}
+```
+* Here we can start, stop and perform any action over instance but we get error while we try to terminate the instance
+
+![Alt text](shots/51.PNG)
+![Alt text](shots/52.PNG)
+![Alt text](shots/53.PNG)
 
 ### Activity-3: Create a Custom IAM Policy to perform any operation on s3, rds and ec2 but stop users from terminating, stopping ec2 and rds instances and removing s3 buckets
 

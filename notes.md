@@ -541,11 +541,35 @@ arn:aws:ec2:ap-south-2:*:instance/*
     [Refer Here : https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html ]
 
 * We have condition block
-* For changes
+* _**activity_5**_
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": ["s3:*"],
+            "Resource": ["*"],
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "us-west-2"
+                }
+            }
+        },
+        {
+            "Effect" : "Allow",
+            "Action": ["s3:listBuckets", "s3:ListAllMyBuckets"],
+            "Resource": ["*"]
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/28c182ab1af86b901b46e32c334be6566947ff29 ]
-
-* _**Exercise**_ : Create an IAM policy to give full access to ec2 in all regions but oregon
+        }
+    ]
+}
+```
+![Alt text](shots/61.PNG)
+![Alt text](shots/62.PNG)
+![Alt text](shots/63.PNG)
+![Alt text](shots/64.PNG)
+![Alt text](shots/65.PNG)
 
 ### IAM Conditions
 

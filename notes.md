@@ -480,15 +480,16 @@ course         AWS
 ### Activity-4: Create an IAM Policy to Start and Stop Ec2 instances
 
 * Create an IAM Policy to Start and Stop Ec2 instances, if the ec2 instance is in `ap-south-1 region` and in other regions only give read permissions
-* Every resource created in AWS will have unique _**ARN**_
+* Every resource created in AWS will have unique _**ARN ( Amazon Resource Name )**_
 * ARN for EC2 `arn:${Partition}:ec2:${Region}:${Account}:instance/${InstanceId}`
 * To fill this 
 
     [Refer Here : https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html ]
 
-* In our case
+* In our case, try creating instances in both the regions to check both the conditions
+=> regions : us-west-2 (oregon), ap-south-2 (hyderabad)
 ```
-arn:aws:ec2:ap-south-1:*:instance/*
+arn:aws:ec2:ap-south-2:*:instance/*
 ```
 * For the IAM policy
 * _**skeleton.json**_
@@ -516,7 +517,7 @@ arn:aws:ec2:ap-south-1:*:instance/*
                 "ec2:StartInstances", 
                 "ec2:StopInstances"
             ],
-            "Resource": ["arn:aws:ec2:ap-south-1:*:instance/*"]
+            "Resource": ["arn:aws:ec2:ap-south-2:*:instance/*"]
         },
         {
             "Effect" : "Allow",
@@ -528,8 +529,12 @@ arn:aws:ec2:ap-south-1:*:instance/*
     ]
 }
 ```
+![Alt text](shots/57.PNG)
+![Alt text](shots/58.PNG)
+![Alt text](shots/59.PNG)
+![Alt text](shots/60.PNG)
 
-### Activity-5: Create an IAM Policy to allow user to delete bucket if the region is only us-west-2
+### Activity-5: Create an IAM Policy to allow user to delete bucket if the region is only `us-west-2`
 
 * Condition keys based on Actions and then there are global condition keys 
 

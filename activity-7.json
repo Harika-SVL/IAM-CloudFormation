@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
+            "Action": ["ec2:*", "cloudwatch:Describe*", "elasticloadbalancing:Describe*", "autoscaling:Describe*"],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": ["ec2:RunInstances"],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                   "ec2:Region": "ap-south-1",
+                   "ec2:InstanceType": "t2.micro"
+                }
+            }
+        }
+    ]
+}

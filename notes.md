@@ -573,23 +573,45 @@ arn:aws:ec2:ap-south-2:*:instance/*
 
 ### IAM Conditions
 
-### Activity-6: Create an IAM Policy to allow user to terminate instance if the type is t2.micro
+### Activity-6: Create an IAM Policy to allow user to terminate instance if the type is `t3.micro`
 
 * _**Action**_ : 
     ec2:TerminateInstances
-* For the policy created
-
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/5cb283a96ce8c5f9df2fca972959da830dc4385c ]
-
-### Activity-7: Allow user to Create ec2 instance if the type is t2.micro and region is mumbai
-
-* Refer the policy below
+* Policy created
 ```
 {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Effect": "Allow",
+            "Effect" : "Allow",
+            "Action": ["ec2:*", "cloudwatch:Describe*", "elasticloadbalancing:Describe*", "autoscaling:Describe*"],
+            "Resource": "*"
+        },
+        {
+            "Effect" : "Deny",
+            "Action": ["ec2:TerminateInstances"],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {"ec2:InstanceType": "t3.micro"}
+            }
+        }
+    ]
+}
+```
+![Alt text](shots/66.PNG)
+![Alt text](shots/67.PNG)
+![Alt text](shots/68.PNG)
+![Alt text](shots/69.PNG)
+
+### Activity-7: Allow user to Create ec2 instance if the type is `t3.micro` and region is `hyderabad`
+
+* Policy 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect" : "Allow",
             "Action": ["ec2:*", "cloudwatch:Describe*", "elasticloadbalancing:Describe*", "autoscaling:Describe*"],
             "Resource": "*"
         },
@@ -599,15 +621,22 @@ arn:aws:ec2:ap-south-2:*:instance/*
             "Resource": "*",
             "Condition": {
                 "StringNotEquals": {
-                   "ec2:Region": "ap-south-1",
-                   "ec2:InstanceType": "t2.micro"
+                   "ec2:Region": "ap-south-2",
+                   "ec2:InstanceType": "t3.micro"
                 }
             }
         }
     ]
 }
 ```
-* This policy is not working if the region is mumbai and instance type is not t2.micro
+![Alt text](shots/70.PNG)
+![Alt text](shots/71.PNG)
+![Alt text](shots/72.PNG)
+![Alt text](shots/73.PNG)
+![Alt text](shots/74.PNG)
+![Alt text](shots/75.PNG)
+
+* This policy is not working if the region is `hyderabad` and instance type is `not t3.micro`
 
 ### Resource-based policies
 

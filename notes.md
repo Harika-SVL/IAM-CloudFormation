@@ -703,13 +703,14 @@ aws iam list-users
 
 * Cloud Trail tracks aws account usage
 
+![Alt text](shots/89.PNG)
 
+#### _**Exercise**_ :
 
-* Exercise:
-    * Create two users with ec2 full access
-    * Create two ec2 instances
-        * login as user 1 and shutdown one ec2
-        * login as user 2 and terminate one ec2
+* Create two users with `EC2FullAccess`
+* Create two ec2 instances
+    * login as user 1 and shutdown one ec2
+    * login as user 2 and terminate one ec2
 * Login in as user 1 and check cloud trail
 * Login in as user 2 and check cloud trail
 * Login in as root and check cloud trail

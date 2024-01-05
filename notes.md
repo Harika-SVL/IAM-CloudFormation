@@ -646,29 +646,58 @@ arn:aws:ec2:ap-south-2:*:instance/*
 
 * Roles are permissions given to aws resources to access other aws resources
 
-### Activity-1: Create an IAM Role for ec2 instances to have full access on s3 buckets
+### Activity-1: Create an IAM Role for ec2 instances to have `full access on s3 buckets`
 
+=> Navigate to IAM => Roles => Create role
 
+![Alt text](shots/76.PNG)
 
+ => select AWS Service => select EC2 => Next 
+ 
+ ![Alt text](shots/77.PNG)
+ ![Alt text](shots/78.PNG)
 
+ => search s3 => select `AmazonS3FullAccess` => Next 
+ 
+ ![Alt text](shots/79.PNG)
 
+ => Give name : `fulls3accesstoec2` => Create role
 
+![Alt text](shots/80.PNG)
+![Alt text](shots/81.PNG)
 
-* Create an ec2 instance (Amazon linux) and attach the role of fulls3accesstoec2
+* Create an ec2 instance (_**Amazon-linux -> as it contains aws cli by default**_ ) and attach the role of `fulls3accesstoec2`
 
+=> Launch an instance => name : rolecheck , OS : Amazon Linux => Advanced details => select IAM instance profile : fulls3accesstoec2 => launch instance
 
+![Alt text](shots/82.PNG)
+![Alt text](shots/83.PNG)
 
+* Now login(happens only with the `.pem` key link) into ec2 instance and create and delete s3 bucket
+```
+aws s3 ls
+aws s3 rb --force s3://<bucket-name>
+aws s3 ls
+```
+![Alt text](shots/84.PNG)
 
+* To check the working let's change the policy to readonly access and try to remove the bucket
 
+![Alt text](shots/85.PNG)
+![Alt text](shots/86.PNG)
 
-* Now login into ec2 instance and create and delete s3 bucket
+### Activity-2: Create an IAM role which allows ec2 instances to `do anything on IAM`
 
+=> Login to the instance and change the role permissions to `IAMFullAccess`
 
+![Alt text](shots/87.PNG)
 
-### Activity-2: Create an IAM role which allows ec2 instances to do anything on IAM
-
-
-
+=> over the cli => create a new user and list the users
+```
+aws iam create-user --user-name test2
+aws iam list-users
+```
+![Alt text](shots/88.PNG)
 
 ### Auditing with Cloud Trail
 
@@ -693,19 +722,19 @@ arn:aws:ec2:ap-south-2:*:instance/*
 
 
 
-* Service Control Policies 
+* Service Control Policies ( SCP ) :
 
     [Refer Here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html ]
 
-* For scp syntax
+* For SCP syntax :
 
     [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html ]
     
-* For ec2 sample
+* For ec2 sample :
 
     [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_ec2.html ] 
     
-* For tagging samples
+* For tagging samples :
 
     [Refer here : https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.html ]
 
@@ -723,7 +752,7 @@ arn:aws:ec2:ap-south-2:*:instance/*
     * ARM Templates
     * Azure Bicep
 
-### AWS Cloudformation
+### AWS Cloud formation
 
 * AWS Cloudformation, allows us to express the desired state in `JSON or YAML` format and when executed (Created stack) will create infra
 * Workflow :

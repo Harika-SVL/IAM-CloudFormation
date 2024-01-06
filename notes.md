@@ -719,9 +719,29 @@ aws iam list-users
 
 * _**AWS Organizations**_ let us manage and govern multiple accounts from one place
 
+![Alt text](shots/90.PNG)
+![Alt text](shots/91.PNG)
 
+* Creating new aws accounts (Learning inside Root, Dev and Prod inside Learning, move the existing account to Learning) for new Organizational unit
 
+![Alt text](shots/92.PNG)
 
+=> Navigate to Root => Actions => Organizational unit : Create new => name : Learning => Create Organizational unit
+
+![Alt text](shots/93.PNG)
+![Alt text](shots/94.PNG)
+![Alt text](shots/95.PNG)
+
+* To move any other to the existing Organizational unit
+
+=> select the movable unit => Actions : move => select the unit to move => Move AWS account
+
+![Alt text](shots/96.PNG)
+![Alt text](shots/97.PNG)
+
+* Creating Dev and Prod in Learning and also move the existing account into prod
+
+![Alt text](shots/98.PNG)
 
 * Service Control Policies ( SCP ) :
 

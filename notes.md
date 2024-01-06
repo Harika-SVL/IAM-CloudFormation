@@ -1044,11 +1044,40 @@ Resources: {}
 
 ### Create VPC
 
-* For the changes done
+* For the changes _**ntier.json**_
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "192.168.0.0/16",
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/446019c53c0abd2840f5f2183bfb905c066ab89e#diff-88dfb32faa4e9964e5eaaea431c705d18c5e1731888b578caf2eeb955795d92d ]
+   
 
-* Create a stack
+* Create a stack `name : ntier`
 
 
 
@@ -1056,34 +1085,517 @@ Resources: {}
 
     [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html ]
 
-* To use the parameter use `ref function`, for the changeset
-
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/4337cc5e4467bb469b0f3d149a5e2e978de96392 ]
+* To use the parameter use `ref function`, for the changeset _**ntierparam.json**_
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+* Now update the stack `name : ntier`
 
 * Updating the properties might lead to
-    * _**Replacement**_ : Delete and recreate
-    * _**No Interuption**_ : Modify on existing resource
+    1. _**Replacement**_ : Delete and recreate
+        * change the Cidr : 10.10.0.0/16 and update the stack `name : ntier`
+
+
+
+    2. _**No Interuption**_ : Modify on existing resource
 * Let's add subnets
-    * For the changes done to add web1 subnet
+    * For the changes done to add _**web1subnet.json**_
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        },
+        "web1cidr": {
+            "Description": "web1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.0.0/24"
+        },
+        "web2cidr": {
+            "Description": "web2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.1.0/24"
+        },
+        "db1cidr": {
+            "Description": "db1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.2.0/24"
+        },
+        "db2cidr": {
+            "Description": "db2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.3.0/24"
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "web1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/60a3ad1b4c43386fbbb16e488873d734b6ba1fa2 ]
-
-    * Now update the stack
+* Now update the stack `name : ntier`
 
 
 
-* For the changes done to add 3 more subnets
+* For the changes done to add 3 more subnets _**subnets.json**_
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        },
+        "web1cidr": {
+            "Description": "web1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.0.0/24"
+        },
+        "web2cidr": {
+            "Description": "web2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.1.0/24"
+        },
+        "db1cidr": {
+            "Description": "db1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.2.0/24"
+        },
+        "db2cidr": {
+            "Description": "db2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.3.0/24"
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "web1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "web2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "db1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "db2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+* Now update the stack `name : ntier`
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/8f943203821c08e1818e1e70fe5227de3a2566ec ]
+    
 
 
 
 
 * web1, db1 subnets should be in `AZ-a` and web2, db2 subnets should be in `AZ-b`
-* Cloud formation supports AWS specific parameter types
-* Use `AZ` parameter as done in this changeset
+* CloudFormation supports AWS specific parameter types
+* Use `AZ` parameter as done in this changeset _**AZparam.json**_
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        },
+        "web1cidr": {
+            "Description": "web1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.0.0/24"
+        },
+        "web2cidr": {
+            "Description": "web2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.1.0/24"
+        },
+        "db1cidr": {
+            "Description": "db1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.2.0/24"
+        },
+        "db2cidr": {
+            "Description": "db2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.3.0/24"
+        },
+        "az1": {
+            "Description": "This is az1",
+            "Type": "AWS::EC2::AvailabilityZone::Name"
+        },
+        "az2": {
+            "Description": "This is az2",
+            "Type": "AWS::EC2::AvailabilityZone::Name"
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az1"
+                },
+                "CidrBlock": {
+                    "Ref": "web1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az2"
+                },
+                "CidrBlock": {
+                    "Ref": "web2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az1"
+                },
+                "CidrBlock": {
+                    "Ref": "db1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az2"
+                },
+                "CidrBlock": {
+                    "Ref": "db2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+* Now update the stack `name : ntier`
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/daa16933df0b0327719dfec27af6cf6edf30c55d ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Database Creation from Cloud formation
 

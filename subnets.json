@@ -1,0 +1,156 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        },
+        "web1cidr": {
+            "Description": "web1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.0.0/24"
+        },
+        "web2cidr": {
+            "Description": "web2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.1.0/24"
+        },
+        "db1cidr": {
+            "Description": "db1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.2.0/24"
+        },
+        "db2cidr": {
+            "Description": "db2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.3.0/24"
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "web1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "web2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "db1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "CidrBlock": {
+                    "Ref": "db2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        }
+    }
+}

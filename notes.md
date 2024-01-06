@@ -993,22 +993,54 @@ Resources: {}
 * Inputs
     * Name tag
     * cidr: 192.168.0.0/16
-* Create stack from the template
+* Template to create vpc
+```
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "classroom activity 2 done ",
+	"Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "s3bucketfromactivity1192.168.0.0/16",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntier"
+                    }
+                ] 
+            }
+        }
 
+	}
+}
+```
+* Create a stack from the above template to create a vpc
 
+=> Navigate to CloudFormation => Stacks => Create stack : With new resources (standard) 
+
+![Alt text](shots/114.PNG)
+
+=> select Template is ready => select Upload a template file => choose file : `activity2.json` => Next 
+
+![Alt text](shots/115.PNG)
+
+=> name : activity2 => Next => Next => Submit
+
+![Alt text](shots/116.PNG)
+![Alt text](shots/117.PNG)
 
 ### Exercise :
 
-* Create a cloud formation template to :
+* Create a CloudFormation template to :
     * Create a user in IAM
     * Create a group in IAM
 
-## AWS Cloud formation
-### Overall architecture
+### Overall architecture of AWS CloudFormation
 
 * Overview
 
-![Alt text](shots/10.PNG)
+
 
 ### Create VPC
 

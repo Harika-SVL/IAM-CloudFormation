@@ -782,11 +782,11 @@ aws iam list-users
     * Creates changeset (what has to be created/updated)
     * Executes to realize infra
 
-![Alt text](shots/9.PNG)
+![Alt text](shots/99.PNG)
 
 * For CF concepts
 
-    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html ]
+    [ Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html ]
 
 * _**Template**_ : Desired state expressed in JSON or YAML
 * _**Stack**_ : Represents the execution of Template
@@ -797,13 +797,13 @@ aws iam list-users
     * Productivity:
         * Visual Studio Code with Cloud formation extension
 
-
+![Alt text](shots/100.PNG)
 
 ## Cloud formation Template Grammar/Syntax
 
 * For AWS CF Template syntax
 
-    [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html ]
+    [ Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html ]
 
 * JSON
 ```
@@ -879,21 +879,21 @@ Outputs:
 ```
 * Template sections 
 
-    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html#template-anatomy-sections ]
+    [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html#template-anatomy-sections ]
 
 * For now let's look at three template sections :
     
     1. Format Version: 
     
-    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html ]
+    [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html ]
 
     2. Description 
     
-    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html ]
+    [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html ]
 
     3. Resources 
     
-    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html ]
+    [ Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html ]
 
 * Skeleton(JSON):
 ```
@@ -919,6 +919,7 @@ Resources: {}
     * Let's make a note of inputs which we provide while creating s3 bucket
 * Manual Steps:
 
+=> Navigate to s3 => Buckets => Create bucket => Give name and region => select ACLs disabled => Block all public access => Diable bucket versioning => select Amazon S3 managed keys (SSE-S3) => Enable bucket key => Create bucket
 
 
 
@@ -928,19 +929,31 @@ Resources: {}
 
 * Search for resource type and syntax
 
-
+![Alt text](shots/101.PNG)
 
 * s3 resource in cloud formation 
 
-    [Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html ]
+    [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.htmlt/UserGuide/aws-resource-s3-bucket.html ]
 
-* For the template created
+* For the template created _**activity1.json**_
+```
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "classroom activity 1 done on march 25",
+	"Resources": {
+        "mys3bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": "qts3bucketfromcf250323"
+            }
+        }
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/9e251a96bc6a840265eac7e850020634a6925bb3 ]
-
+	}
+}
+```
 * Create stack:
 
-
+=> Navigate to CloudFormation => Stacks => Create stack : With new resources (standard) => select Template is ready => select Upload a template file => choose file `activity1.json` => Next => Next => Submit
 
 
 
@@ -952,7 +965,7 @@ Resources: {}
 
 * For manual steps
 
-    [Refer here : https://directdevops.blog/2023/03/17/devops-classroomnotes-17-mar-2023/ ]
+    [ Refer here : https://directdevops.blog/2023/03/17/devops-classroomnotes-17-mar-2023/ ]
 
 * Inputs
     * Name tag

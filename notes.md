@@ -769,13 +769,13 @@ aws iam list-users
 * This represents expressing infra as a Desired state and let the IaC tool do the rest
 * Popular IaC tools
     * Terraform
-    * Cloud Formation
+    * CloudFormation
     * ARM Templates
     * Azure Bicep
 
-### AWS Cloud formation
+### AWS CloudFormation
 
-* AWS Cloudformation, allows us to express the desired state in `JSON or YAML` format and when executed (Created stack) will create infra
+* AWS CloudFormation, allows us to express the desired state in `JSON or YAML` format and when executed (Created stack) will create infra
 * Workflow :
     * Author a template
     * upload to s3 directly or indirectly
@@ -791,11 +791,11 @@ aws iam list-users
 * _**Template**_ : Desired state expressed in JSON or YAML
 * _**Stack**_ : Represents the execution of Template
 * _**Changeset**_ : This represents the infra to be updated/created/deleted.
-* To author an Cloud formation template, we need :
+* To author an CloudFormation template, we need :
     * JSON/YAML Knowledge
     * Manual steps for how to create infra
-    * Productivity:
-        * Visual Studio Code with Cloud formation extension
+    * _**Productivity**_ :
+        * Visual Studio Code with CloudFormation extension
 
 ![Alt text](shots/100.PNG)
 
@@ -883,19 +883,19 @@ Outputs:
 
 * For now let's look at three template sections :
     
-    1. Format Version: 
+    1. _**Format Version**_ 
     
     [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html ]
 
-    2. Description 
+    2. _**Description**_ 
     
     [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-description-structure.html ]
 
-    3. Resources 
+    3. _**Resources**_ 
     
     [ Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html ]
 
-* Skeleton(JSON):
+* _**Skeleton(JSON)**_ :
 ```
 {
     "AWSTemplateFormatVersion": "2010-09-09",
@@ -905,33 +905,50 @@ Outputs:
     }
 }
 ```
-* Skeleton (YAML):
+* _**Skeleton (YAML)**_ :
 ```
 ---
 AWSTemplateFormatVersion: '2010-09-09'
 Description: ''
 Resources: {}
 ```
-### Activity-1: Create an S3 bucket using Cloud formation
+### Activity1: Create an S3 bucket using CloudFormation
 
-* Way of Working (WoW):
+* _**Way of Working (WoW)**_ :
     * Manual steps for creation
     * Let's make a note of inputs which we provide while creating s3 bucket
-* Manual Steps:
+* _**Manual Steps**_ :
 
-=> Navigate to s3 => Buckets => Create bucket => Give name and region => select ACLs disabled => Block all public access => Diable bucket versioning => select Amazon S3 managed keys (SSE-S3) => Enable bucket key => Create bucket
+=> Navigate to s3 => Buckets => Create bucket 
 
+![Alt text](shots/102.PNG)
 
+=> Give name : `s3bucketcreate` and region `Hyderabad`
 
+![Alt text](shots/103.PNG)
 
+=> select ACLs disabled 
 
+![Alt text](shots/104.PNG)
 
+=> Block all public access 
+
+![Alt text](shots/105.PNG)
+
+=> Bucket versioning : Disable  
+
+![Alt text](shots/106.PNG)
+
+=> select Amazon S3 managed keys (SSE-S3) => Enable bucket key => Create bucket
+
+![Alt text](shots/107.PNG)
+![Alt text](shots/108.PNG)
 
 * Search for resource type and syntax
 
 ![Alt text](shots/101.PNG)
 
-* s3 resource in cloud formation 
+* s3 resource in CloudFormation 
 
     [ Refer Here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.htmlt/UserGuide/aws-resource-s3-bucket.html ]
 
@@ -939,12 +956,12 @@ Resources: {}
 ```
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "classroom activity 1 done on march 25",
+	"Description": "classroom activity 1 done ",
 	"Resources": {
         "mys3bucket": {
             "Type": "AWS::S3::Bucket",
             "Properties": {
-                "BucketName": "qts3bucketfromcf250323"
+                "BucketName": "s3bucketfromactivity1"
             }
         }
 
@@ -953,15 +970,21 @@ Resources: {}
 ```
 * Create stack:
 
-=> Navigate to CloudFormation => Stacks => Create stack : With new resources (standard) => select Template is ready => select Upload a template file => choose file `activity1.json` => Next => Next => Submit
+=> Navigate to CloudFormation => Stacks => Create stack : With new resources (standard) 
 
+![Alt text](shots/109.PNG)
 
+=> select Template is ready => select Upload a template file => choose file : `activity1.json` => Next 
 
+![Alt text](shots/110.PNG)
 
+=> name : activity1 => Next => Next => Submit
 
+![Alt text](shots/111.PNG)
+![Alt text](shots/112.PNG)
+![Alt text](shots/113.PNG)
 
-
-### Activity-2: Create a VPC
+### Activity2: Create a VPC
 
 * For manual steps
 

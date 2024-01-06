@@ -1,0 +1,13 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "classroom activity 1 done ",
+	"Resources": {
+        "mys3bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": "s3bucketfromactivity1"
+            }
+        }
+
+	}
+}

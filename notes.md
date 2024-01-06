@@ -717,7 +717,7 @@ aws iam list-users
 
 ### Multiple Account Management via AWS Organizations
 
-* AWS Organizations let us manage and govern multiple accounts from one place
+* _**AWS Organizations**_ let us manage and govern multiple accounts from one place
 
 
 

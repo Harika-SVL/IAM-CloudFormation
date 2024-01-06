@@ -1040,7 +1040,7 @@ Resources: {}
 
 * Overview
 
-
+![Alt text](shots/118.PNG)
 
 ### Create VPC
 

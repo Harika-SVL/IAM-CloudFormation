@@ -1076,7 +1076,11 @@ Resources: {}
 ```
 * Create a stack `name : ntier`
 
+=> Create stack => With new resources (standard) => Template is ready => Upload a template file => choose file => Next => name : ntier => Next => Next => Submit
 
+![Alt text](shots/119.PNG)
+![Alt text](shots/120.PNG)
+![Alt text](shots/121.PNG)
 
 * Let's define parameters to make CIDR range of VPC dynamic, for parameters official doc's
 
@@ -1123,15 +1127,25 @@ Resources: {}
 ```
 * Now create the stack `name : tiern`
 
+=> Create stack => With new resources (standard) => Template is ready => Upload a template file => choose file => Next => name : tiern => Next => Next => Submit
 
+![Alt text](shots/122.PNG)
+![Alt text](shots/123.PNG)
+![Alt text](shots/124.PNG)
 
 * Updating the properties might lead to
     1. _**Replacement**_ : Delete and recreate
         * change the Cidr : 10.10.0.0/16 and update the stack `name : tiern`
+         
+        => Update => Replace current template => Upload template file => choose file => Next => cidr : 10.10.0.0/16 => Next => Next => Submit
 
-    
-
-    2. _**No Interuption**_ : Modify on existing resource
+         ![Alt text](shots/125.PNG)
+         ![Alt text](shots/126.PNG)
+         ![Alt text](shots/127.PNG)
+         ![Alt text](shots/128.PNG)
+         ![Alt text](shots/129.PNG)
+         
+        2. _**No Interuption**_ : Modify on existing resource
 * Let's add subnets
     * For the changes done to add _**web1subnet.json**_ `(tiern)`
 ```
@@ -1219,9 +1233,11 @@ Resources: {}
 ```
 * Now update the stack `name : ntier`
 
-=> Update => Use current template => Next => select CIDR => Next => Next => Submit
-
-
+=> Update => Replace current template => Upload template file => choose file => Next => web1 : 10.10.0.0/16 => Next => Next => Submit
+![Alt text](shots/130.PNG)
+![Alt text](shots/131.PNG)
+![Alt text](shots/132.PNG)
+![Alt text](shots/133.PNG)
 
 * For the changes done to add 3 more subnets _**subnets.json**_ `(tiern)`
 ```
@@ -1384,9 +1400,12 @@ Resources: {}
 ```
 * Now update the stack `name : tiern`
 
-=> Update => Replace current template => Upload template file => choose file => Next => Next => Submit
+=> Update => Replace current template => Upload template file => choose file => Next => web2 : 10.10.1.0/16, db1 : 10.10.2.0/16, db2 : 10.10.3.0/16 => Next => Next => Submit
 
-
+![Alt text](shots/134.PNG)
+![Alt text](shots/135.PNG)
+![Alt text](shots/136.PNG)
+![Alt text](shots/137.PNG)
 
 * web1, db1 subnets should be in `AZ-a` and web2, db2 subnets should be in `AZ-b`
 * CloudFormation supports AWS specific parameter types
@@ -1571,32 +1590,9 @@ Resources: {}
 ```
 * Now update the stack `name : tiern`
 
+=> Update => Replace current template => Upload template file => choose file => Next => az1 : az-a, az2 : az-b => Next => Next => Submit
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Alt text](shots/138.PNG)
 
 ### Database Creation from Cloud formation
 

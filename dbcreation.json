@@ -34,15 +34,6 @@
         "az2": {
             "Description": "This is az2",
             "Type": "AWS::EC2::AvailabilityZone::Name"
-        },
-        "engine": {
-            "Description": "database engine type",
-            "Type": "String",
-            "Default": "mysql",
-            "AllowedValues": [
-                "mysql",
-                "postgres"
-            ]
         }
     },
     "Resources": {
@@ -249,9 +240,7 @@
                 "DBSubnetGroupName": {
                     "Ref": "rdsDBSubnetGroup"
                 },
-                "Engine": {
-                    "Ref": "engine"
-                },
+                "Engine": "mysql",
                 "EngineVersion": "8.0.32",
                 "MasterUsername": "admin",
                 "MasterUserPassword": "adminadmin",

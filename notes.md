@@ -1603,7 +1603,7 @@ Resources: {}
             * incoming/ingress :
                 * port : 3306
                 * cidr : vpc cidr
-* For the changes 
+* For the changes _**dbcreation.json**_ `(tiern)`
 ```
 {
     "AWSTemplateFormatVersion": "2010-09-09",
@@ -1890,9 +1890,298 @@ Resources: {}
     * dbinstance class
     * dbsize 
     * dbtype
-* For the parameter engine added
+* For the parameter engine added _**dbparamengine.json**_ `(tiern)`
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is ntier in aws",
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "192.168.0.0/16",
+            "Description": "Vpc CidrBlock"
+        },
+        "web1cidr": {
+            "Description": "web1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.0.0/24"
+        },
+        "web2cidr": {
+            "Description": "web2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.1.0/24"
+        },
+        "db1cidr": {
+            "Description": "db1 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.2.0/24"
+        },
+        "db2cidr": {
+            "Description": "db2 subnet cidr",
+            "Type": "String",
+            "Default": "192.168.3.0/24"
+        },
+        "az1": {
+            "Description": "This is az1",
+            "Type": "AWS::EC2::AvailabilityZone::Name"
+        },
+        "az2": {
+            "Description": "This is az2",
+            "Type": "AWS::EC2::AvailabilityZone::Name"
+        },
+        "engine": {
+            "Description": "database engine type",
+            "Type": "String",
+            "Default": "mysql",
+            "AllowedValues": [
+                "mysql",
+                "postgres"
+            ]
+        }
+    },
+    "Resources": {
+        "ntiervpc": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": true,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ntiervpc"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az1"
+                },
+                "CidrBlock": {
+                    "Ref": "web1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "web2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az2"
+                },
+                "CidrBlock": {
+                    "Ref": "web2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "web2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db1subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az1"
+                },
+                "CidrBlock": {
+                    "Ref": "db1cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db1"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "db2subnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "AvailabilityZone": {
+                    "Ref": "az2"
+                },
+                "CidrBlock": {
+                    "Ref": "db2cidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "db2"
+                    },
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "rdsDBSubnetGroup": {
+            "Type": "AWS::RDS::DBSubnetGroup",
+            "Properties": {
+                "DBSubnetGroupDescription": "ntierdbsubnetgroup",
+                "DBSubnetGroupName": "ntierdbsubnetgroup",
+                "SubnetIds": [
+                    {
+                        "Ref": "db1subnet"
+                    },
+                    {
+                        "Ref": "db2subnet"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "ntierdbsg": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "ntierdb security group",
+                "SecurityGroupIngress": [
+                    {
+                        "CidrIp": {
+                            "Ref": "vpccidr"
+                        },
+                        "Description": "Allow all incoming connections on 3306",
+                        "IpProtocol": "tcp",
+                        "FromPort": 3306,
+                        "ToPort": 3306
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "Tags": [
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ]
+            }
+        },
+        "ntierdb": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "AllocatedStorage": 20,
+                "DBInstanceClass": "db.t2.micro",
+                "AllowMajorVersionUpgrade": false,
+                "AutoMinorVersionUpgrade": false,
+                "BackupRetentionPeriod": 0,
+                "DBInstanceIdentifier": "qtrdsdbinstancefromcf",
+                "DBName": "employees",
+                "DBSubnetGroupName": {
+                    "Ref": "rdsDBSubnetGroup"
+                },
+                "Engine": {
+                    "Ref": "engine"
+                },
+                "EngineVersion": "8.0.32",
+                "MasterUsername": "admin",
+                "MasterUserPassword": "adminadmin",
+                "MultiAZ": false,
+                "Port": "3306",
+                "PubliclyAccessible": false,
+                "StorageType": "gp2",
+                "Tags": [
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    }
+                ],
+                "VPCSecurityGroups": [
+                    {
+                        "Ref": "ntierdbsg"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+* Now create the stack `name : tiern`
 
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/26decca3acb8fb465b57b66846c4e17e3645e5c8 ]
+=> Create stack => With new resources (standard) => Template is ready => Upload a template file => choose file => Next => name : tiern => Next => Next => Submit
+
+![Alt text](shots/142.PNG)
+![Alt text](shots/143.PNG)
+![Alt text](shots/144.PNG)
+![Alt text](shots/145.PNG)
+![Alt text](shots/146.PNG)
 
 ### Creating ec2 instance using Cloud formation
 

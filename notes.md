@@ -1570,7 +1570,7 @@ Resources: {}
     }
 }
 ```
-* Now update the stack `name : ntier`
+* Now update the stack `name : ntier`giy 
 
 
 

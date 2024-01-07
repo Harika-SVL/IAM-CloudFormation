@@ -2183,7 +2183,7 @@ Resources: {}
 ![Alt text](shots/145.PNG)
 ![Alt text](shots/146.PNG)
 
-### Creating ec2 instance using Cloud formation
+### Creating ec2 instance using CloudFormation
 
 * We will be installing apache server in ubuntu 22.04
 * Things to be created
@@ -2196,7 +2196,7 @@ Resources: {}
     * Key pair to be passed
     * Instance type to be passed
     * Subnet in which ec2 instance has to be created
-* Let's create ec2 based on cloud formation spec
+* Let's create ec2 based on CloudFormation spec
 
     [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html ]
 

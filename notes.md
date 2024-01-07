@@ -1076,7 +1076,7 @@ Resources: {}
 ```
 * Create a stack `name : ntier`
 
-![Alt text](shots/119.PNG)
+
 
 * Let's define parameters to make CIDR range of VPC dynamic, for parameters official doc's
 
@@ -1123,15 +1123,13 @@ Resources: {}
 ```
 * Now create the stack `name : tiern`
 
-![Alt text](shots/120.PNG)
+
 
 * Updating the properties might lead to
     1. _**Replacement**_ : Delete and recreate
         * change the Cidr : 10.10.0.0/16 and update the stack `name : tiern`
 
-    ![Alt text](shots/121.PNG)
-    ![Alt text](shots/122.PNG)
-    ![Alt text](shots/123.PNG)
+    
 
     2. _**No Interuption**_ : Modify on existing resource
 * Let's add subnets
@@ -1223,10 +1221,7 @@ Resources: {}
 
 => Update => Use current template => Next => select CIDR => Next => Next => Submit
 
-![Alt text](shots/124.PNG)
-![Alt text](shots/125.PNG)
-![Alt text](shots/126.PNG)
-![Alt text](shots/127.PNG)
+
 
 * For the changes done to add 3 more subnets _**subnets.json**_ `(tiern)`
 ```
@@ -1391,9 +1386,7 @@ Resources: {}
 
 => Update => Replace current template => Upload template file => choose file => Next => Next => Submit
 
-![Alt text](shots/128.PNG)
-![Alt text](shots/129.PNG)
-![Alt text](shots/130.PNG)
+
 
 * web1, db1 subnets should be in `AZ-a` and web2, db2 subnets should be in `AZ-b`
 * CloudFormation supports AWS specific parameter types

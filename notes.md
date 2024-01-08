@@ -2255,7 +2255,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2283,7 +2283,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2311,7 +2311,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2339,7 +2339,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2367,7 +2367,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2392,7 +2392,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2422,7 +2422,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2457,7 +2457,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -2497,7 +2497,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -2605,7 +2605,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2633,7 +2633,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2661,7 +2661,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2689,7 +2689,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2717,7 +2717,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2742,7 +2742,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2772,7 +2772,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -2781,7 +2781,7 @@ Resources: {}
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t3.micro",
+                "DBInstanceClass": "db.t2.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -2807,7 +2807,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -2847,7 +2847,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -2884,7 +2884,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -2987,7 +2987,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3015,7 +3015,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3043,7 +3043,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3071,7 +3071,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3099,7 +3099,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3124,7 +3124,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3154,7 +3154,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3189,7 +3189,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -3229,7 +3229,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -3277,7 +3277,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -3389,7 +3389,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3417,7 +3417,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3445,7 +3445,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3473,7 +3473,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3501,7 +3501,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3526,7 +3526,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3556,7 +3556,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3591,7 +3591,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -3631,7 +3631,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -3674,7 +3674,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -3693,7 +3693,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3722,7 +3722,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3786,11 +3786,11 @@ Resources: {}
 
     [Refer here : https://github.com/asquarezone/awsadministration/commit/5410ea4b88afaaf40ea54f4323849f605864f2c8 ]
 
-* For creating stack from CLI the follwing command was used
+* For creating stack `activity3` from CLI the follwing command was used
 ```
 aws cloudformation create-stack --stack-name 'activity3' --template-body 'file://activity3.json' --parameters "ParameterKey=ami,ParameterValue=ami-0fcf52bcf5db7b003" "ParameterKey=keypair,ParameterValue=my_id_rsa" "ParameterKey=sg,ParameterValue=sg-05adaf452b268c335" "ParameterKey=subnetid,ParameterValue=subnet-09be7bc355f4c0475"
 ```
-### Activity-4
+### Activity-4 `activity4`
 
 * Create an ECS cluster
 * Create a task defintion

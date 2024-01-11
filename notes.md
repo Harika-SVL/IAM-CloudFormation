@@ -21,7 +21,7 @@
 ![Alt text](shots/3.PNG)
 
 * To give access to the employees and set restrictions on what is allowed or denied, we need to implement _**Authentication and Authorization**_
-* How organizations in `non aws/cloud world` store their user information (Identity Server) and how do we connect that to AWS (Federation)
+* How organizations in `non-aws/cloud world` store their user information (Identity Server) and how do we connect that to AWS (Federation)
 * How to enforce Standards ?
 * Service Accounts in AWS
 * Generally organizations use multiple AWS accounts and in many cases we do the same _**Identity and Access Control**_ related works so how to reuse
@@ -36,14 +36,14 @@
 
 ## Identity and Access Management
 
-* _**Root Account**_ : Root Account refers to the super user in AWS with access to everything including bills
+* _**Root Account**_ : Root Account refers to the `Super User` in AWS with access to everything including bills
 * AWS can be accessed via :
-    * Console Access:
+    * _**Console Access**_ :
         * This refers to accessing aws from https://console.aws.amazon.com/
         * Here we login with `Username` and `Password`
-    * Programmatic Access:
-        * This refers to accessing aws from terminal (by typing commands) and sdk (by writing code)
-        * To login into aws we need _**Secret key**_ and _**Access key**_
+    * _**Programmatic Access**_ :
+        * This refers to accessing aws from _**Terminal**_ (by typing commands) and _**SDK**_ (by writing code)
+        * To login into aws we need _**Secret Key**_ and _**Access Key**_
 
     ![Alt text](shots/4.PNG)
 
@@ -59,8 +59,8 @@
 * Sometimes we might give access to an AWS Resource to access other AWS resources (_**IAM Roles**_)
 * In AWS _**Authorization**_ is provided by _**IAM Policies**_
 * In AWS we have two kinds of policies :
-    1. _**AWS Managed Policies**_ : Policies written by AWS which are available for usage in all AWS Accounts
-    2. _**Customer Managed Policies**_ : These are created and maintained by Customers
+    * _**AWS Managed Policies**_ : Policies written by AWS which are available for usage in all AWS Accounts
+    * _**Customer Managed Policies**_ : These are created and maintained by Customers
 
 ### Let's create a user( IAM User ) to access console
 
@@ -92,7 +92,7 @@
 ![Alt text](shots/12.PNG)
 ![Alt text](shots/13.PNG)
 
-* Root user has access to every thing,but IAM user cannot access the same as no policies given
+* Root user has access to every thing, but IAM user cannot access the same as no policies given
 
 ![Alt text](shots/14.PNG)
 
@@ -143,14 +143,14 @@
 
 ### AWS Managed Policies
 
-* Policies given aws by default are referred as Managed Policies
+* Policies given aws by default are referred as _**Managed Policies**_
 * These are generic policies created and managed by aws
 
 ![Alt text](shots/24.PNG)
 
 ### AWS Customer Managed Policies
 
-* These are custom policies defined by AWS USers for custom permissions.
+* These are custom policies defined by AWS Users for custom permissions
 * To Create Policies we need to understand
     * Service
     * Resource
@@ -161,7 +161,7 @@
     [Refer here : https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html ]
 
 * Let's try to give an access to `testers` to _**start and stop ec2 instances**_
-    * To start and stop ec2 user should be able to view ec2 instances
+    * To start and stop ec2, user should be able to view ec2 instances
     * The actions which we have sorted are
         * StartInstances
         * StopInstances
@@ -254,7 +254,7 @@
 
 * Write policies in JSON
 * Use Simulator to test the policies
-* Exercise: 
+* For JSON and YAML reference : 
 
     [ Refer Here : https://www.youtube.com/watch?v=ggOmHlnhPaM&list=PLuVH8Jaq3mLud3sVDvJ-gJ__0zd15wGDd&index=16 ]
 
@@ -277,15 +277,15 @@ course         AWS
 "course": AWS
 ```
 * Value can be of different types categorized into
-    1. _**Simple**_ :
-        * _**Text/String**_ : we use quotes `""`
+    * _**Simple**_ :
+        * _**Text/String**_ : we use double quotes `""`
             `"qualificiation": "BTech"`
             `"Course": "AWS"`
         * _**Number**_ :
             `"duration": 90`
         * _**Boolean**_ : two values are possible `true or false`
             `"isOnline": true`
-    2. _**Complex**_ :
+    * _**Complex**_ :
         * _**list/array**_ : This is represented in `[]` 
             `"colors": ["Red", "White"]`
         * _**object/dictionary**_ : This is represented in `{ }` 
@@ -378,7 +378,7 @@ course         AWS
     ]
 }
 ```
-* Generally to start and stop the ec2 instace it is implicit that user should be able to view/list instnaces
+* Generally to start and stop the ec2 instace it is implicit that user should be able to view/list instances
 * For Actions, resources, and condition keys for Amazon EC2 :
 
     [Refer Here : https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html ]
@@ -409,7 +409,7 @@ course         AWS
 
 ![Alt text](shots/44.PNG)
 
-=> Change the permissions for the `testers` group with new policy => simulate => Select Service : EC2 => Select All => Run Simulation ( Some are denied and some are allowed )
+=> Change the permissions for the `testers` group with new policy => simulate => Select Service : EC2 => Select All => Run Simulation ( some are denied and some are allowed )
 
 ![Alt text](shots/45.PNG)
 ![Alt text](shots/46.PNG)

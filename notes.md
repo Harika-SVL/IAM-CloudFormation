@@ -487,7 +487,7 @@ course         AWS
     [Refer Here : https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html ]
 
 * In our case, try creating instances in both the regions to check both the conditions
-=> regions : us-west-2 (oregon), ap-south-2 (hyderabad)
+=> regions : `us-west-2` (oregon), `ap-south-2` (hyderabad)
 ```
 arn:aws:ec2:ap-south-2:*:instance/*
 ```

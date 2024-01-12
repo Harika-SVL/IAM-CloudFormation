@@ -2574,7 +2574,7 @@ Resources: {}
         "imageid": {
             "Description": "ami id",
             "Type": "String",
-            "Default": "ami-0b584e5449fa1dd56"
+            "Default": "ami-0c7217cdde317cfec"
         },
         "instancetype": {
             "Description": "instance type",
@@ -2899,7 +2899,7 @@ Resources: {}
     
 * This created an ec2 instance but it didn’t had public ip address
 
-
+![Alt text](shots/147.PNG)
 
 * Make necessary changes in the template to associate public ip address, for the changes
 ```
@@ -3290,13 +3290,11 @@ Resources: {}
     }
 }
 ```
-
-
-
+![Alt text](shots/148.PNG)
 
 * Let's try logging into machine
 
-
+![Alt text](shots/149.PNG)
 
 * The ssh-connection is timed out the reason for that is VPC is private.
 * To give internet connectivity to VPC :

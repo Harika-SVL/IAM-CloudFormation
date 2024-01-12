@@ -43,6 +43,24 @@
                 "mysql",
                 "postgres"
             ]
+        },
+        "keypair": {
+            "Description": "Keypair",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "imageid": {
+            "Description": "ami id",
+            "Type": "String",
+            "Default": "ami-0b584e5449fa1dd56"
+        },
+        "instancetype": {
+            "Description": "instance type",
+            "Type": "String",
+            "Default": "t2.micro",
+            "AllowedValues": [
+                "t2.micro",
+                "t3.micro"
+            ]
         }
     },
     "Resources": {
@@ -240,7 +258,7 @@
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t2.micro",
+                "DBInstanceClass": "db.t3.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -272,6 +290,94 @@
                 "VPCSecurityGroups": [
                     {
                         "Ref": "ntierdbsg"
+                    }
+                ]
+            }
+        },
+        "websg": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "This is web sg",
+                "SecurityGroupIngress": [
+                    {
+                        "CidrIp": "0.0.0.0/0",
+                        "Description": "Allow all incoming connections on 80",
+                        "IpProtocol": "tcp",
+                        "FromPort": 80,
+                        "ToPort": 80
+                    },
+                    {
+                        "CidrIp": "0.0.0.0/0",
+                        "Description": "Allow all incoming connections on 22",
+                        "IpProtocol": "tcp",
+                        "FromPort": 22,
+                        "ToPort": 22
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "ntiervpc"
+                },
+                "Tags": [
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "websg"
+                    }
+                ]
+            }
+        },
+        "webec2": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "KeyName": {
+                    "Ref": "keypair"
+                },
+                "ImageId": {
+                    "Ref": "imageid"
+                },
+                "InstanceType": {
+                    "Ref": "instancetype"
+                },
+                "Monitoring": false,
+                "SecurityGroupIds": [
+                "NetworkInterfaces": [
+                    {
+                        "Ref": "websg"
+                        "AssociatePublicIpAddress": true,
+                        "SubnetId": {
+                            "Ref": "web1subnet"
+                        },
+                        "GroupSet": [
+                            {
+                                "Ref": "websg"
+                            }
+                        ],
+                        "DeviceIndex": "0"
+                    }
+                ],
+                "SubnetId": {
+                    "Ref": "web1subnet"
+                },
+                "Tags": [
+                    {
+                        "Key": "Env",
+                        "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "CloudFormation"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "websg"
+                        "Value": "webec2"
                     }
                 ]
             }

@@ -3767,19 +3767,21 @@ Resources: {}
 
     [Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html ]
 
-### Cloudformation Functions
+### CloudFormation Functions 
+
+(For notes : https://directdevops.blog/2023/03/31/aws-classroomnotes-31-mar-2023/)
 
 * For functions 
 
     [ Refer here : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html ]
 * We have used `fn::base64` and `fn::join` function to pass linux commands to user data of ec2 instance
-* For the changes to install apache server
+* For the changes to install apache server ( after obtaining the public_ip from the instances created expose over the browser with `http://public_ip:8080`)
 
-
+![Alt text](shots/150.PNG)
 
 * In the outputs section, let us try to display url for accessing apache 
 
-
+![Alt text](shots/151.PNG)
 
 * For the chagnes 
 ```
@@ -3836,7 +3838,7 @@ Resources: {}
         "imageid": {
             "Description": "ami id",
             "Type": "String",
-            "Default": "ami-0b584e5449fa1dd56"
+            "Default": "ami-0c7217cdde317cfec"
         },
         "instancetype": {
             "Description": "instance type",
@@ -3867,7 +3869,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3895,7 +3897,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3923,7 +3925,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3951,7 +3953,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -3979,7 +3981,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4004,7 +4006,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4034,7 +4036,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4043,7 +4045,7 @@ Resources: {}
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t3.micro",
+                "DBInstanceClass": "db.t2.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -4069,7 +4071,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -4109,7 +4111,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -4164,7 +4166,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -4183,7 +4185,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4212,7 +4214,7 @@ Resources: {}
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4327,7 +4329,7 @@ Lets display database endpoint and for the changes
         "imageid": {
             "Description": "ami id",
             "Type": "String",
-            "Default": "ami-0b584e5449fa1dd56"
+            "Default": "ami-0c7217cdde317cfec"
         },
         "instancetype": {
             "Description": "instance type",
@@ -4358,7 +4360,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4386,7 +4388,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4414,7 +4416,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4442,7 +4444,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4470,7 +4472,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4495,7 +4497,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4525,7 +4527,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4534,7 +4536,7 @@ Lets display database endpoint and for the changes
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t3.micro",
+                "DBInstanceClass": "db.t2.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -4560,7 +4562,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -4600,7 +4602,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -4655,7 +4657,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -4674,7 +4676,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4703,7 +4705,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4754,7 +4756,6 @@ Lets display database endpoint and for the changes
             "Value": {
                 "Fn::Join": [
                     "://",
-@@ -483,6 +489,15 @@
                     ]
                 ]
             }
@@ -4771,8 +4772,7 @@ Lets display database endpoint and for the changes
     }
 }
 ```
-
-
+![Alt text](shots/152.PNG)
 
 * For the changes to use map
 ```
@@ -4829,7 +4829,7 @@ Lets display database endpoint and for the changes
         "imageid": {
             "Description": "ami id",
             "Type": "String",
-            "Default": "ami-0b584e5449fa1dd56"
+            "Default": "ami-0c7217cdde317cfec"
         },
         "instancetype": {
             "Description": "instance type",
@@ -4843,13 +4843,13 @@ Lets display database endpoint and for the changes
     },
     "Mappings": {
         "ubuntuMap": {
-            "us-west-2": {
+            "us-east-1": {
                 "20.04": "ami-0223246728818f162",
-                "22.04": "ami-0fcf52bcf5db7b003"
+                "22.04": "ami-0c7217cdde317cfec"
             },
             "ap-south-2": {
-                "20.04": "ami-0dc2e08b4c26a85a2",
-                "22.04": "ami-0b584e5449fa1dd56"
+                "20.04": "ami-0e772b315cdd7abe2",
+                "22.04": "ami-0bbc2f7f6287d5ca6"
             }
         }
     },
@@ -4872,7 +4872,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4900,7 +4900,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4928,7 +4928,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4956,7 +4956,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -4984,7 +4984,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5009,7 +5009,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5039,7 +5039,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5048,7 +5048,7 @@ Lets display database endpoint and for the changes
             "Type": "AWS::RDS::DBInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t3.micro",
+                "DBInstanceClass": "db.t2.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -5074,7 +5074,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -5114,7 +5114,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -5175,7 +5175,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -5194,7 +5194,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5223,7 +5223,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5353,7 +5353,7 @@ Lets display database endpoint and for the changes
         "imageid": {
             "Description": "ami id",
             "Type": "String",
-            "Default": "ami-0b584e5449fa1dd56"
+            "Default": "ami-0c7217cdde317cfec"
         },
         "instancetype": {
             "Description": "instance type",
@@ -5385,17 +5385,13 @@ Lets display database endpoint and for the changes
     },
     "Mappings": {
         "ubuntuMap": {
-            "us-west-2": {
-                "20.04": "ami-0223246728818f162",
-                "22.04": "ami-0fcf52bcf5db7b003"
-                "2004": "ami-0223246728818f162",
-                "2204": "ami-0fcf52bcf5db7b003"
+            "us-east-1": {
+                "2004": "ami-06aa3f7caf3a30282",
+                "2204": "ami-0c7217cdde317cfec"
             },
             "ap-south-2": {
-                "20.04": "ami-0dc2e08b4c26a85a2",
-                "22.04": "ami-0b584e5449fa1dd56"
-                "2004": "ami-0dc2e08b4c26a85a2",
-                "2204": "ami-0b584e5449fa1dd56"
+                "2004": "ami-0e772b315cdd7abe2",
+                "2204": "ami-0bbc2f7f6287d5ca6"
             }
         }
     },
@@ -5432,7 +5428,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5460,7 +5456,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5488,7 +5484,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5516,7 +5512,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5544,7 +5540,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5569,7 +5565,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5599,7 +5595,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5609,7 +5605,7 @@ Lets display database endpoint and for the changes
             "Condition": "createRDSInstance",
             "Properties": {
                 "AllocatedStorage": 20,
-                "DBInstanceClass": "db.t3.micro",
+                "DBInstanceClass": "db.t2.micro",
                 "AllowMajorVersionUpgrade": false,
                 "AutoMinorVersionUpgrade": false,
                 "BackupRetentionPeriod": 0,
@@ -5635,7 +5631,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ],
                 "VPCSecurityGroups": [
@@ -5675,7 +5671,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -5697,7 +5693,6 @@ Lets display database endpoint and for the changes
                         {
                             "Ref": "AWS::Region"
                         },
-                        "22.04"
                         "2204"
                     ]
                 },
@@ -5738,7 +5733,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     },
                     {
                         "Key": "Name",
@@ -5757,7 +5752,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5786,7 +5781,7 @@ Lets display database endpoint and for the changes
                     },
                     {
                         "Key": "CreatedBy",
-                        "Value": "Cloudformation"
+                        "Value": "CloudFormation"
                     }
                 ]
             }
@@ -5861,7 +5856,6 @@ Lets display database endpoint and for the changes
     }
 }
 ```
-
 ### Activities
 
 * Create an Ubuntu AMI and install nginx in it

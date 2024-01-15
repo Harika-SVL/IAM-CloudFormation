@@ -5869,18 +5869,103 @@ Lets display database endpoint and for the changes
     ```
     * This requires :
         * Creating a security group with `80` port opened
-* For approximate answer
-
-    [Refer here : https://github.com/asquarezone/awsadministration/commit/5410ea4b88afaaf40ea54f4323849f605864f2c8 ]
-
-* For creating stack `activity3` from CLI the follwing command was used
+* For approximate answer _**activity3.json**_
 ```
-aws cloudformation create-stack --stack-name 'activity3' --template-body 'file://activity3.json' --parameters "ParameterKey=ami,ParameterValue=ami-0fcf52bcf5db7b003" "ParameterKey=keypair,ParameterValue=my_id_rsa" "ParameterKey=sg,ParameterValue=sg-05adaf452b268c335" "ParameterKey=subnetid,ParameterValue=subnet-09be7bc355f4c0475"
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "classroom activity 2 25032023",
+    "Parameters": {
+        "keypair": {
+            "Description": "keyname",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "ami": {
+            "Type": "AWS::EC2::Image::Id"
+        },
+        "sg": {
+            "Type": "String"
+        },
+        "subnetid": {
+            "Type": "AWS::EC2::Subnet::Id"
+        }
+    },
+    "Resources": {
+        "ubuntu": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "KeyName": {
+                    "Ref": "keypair"
+                },
+                "ImageId": {
+                    "Ref": "ami"
+                },
+                "InstanceType": "t2.micro",
+                "Monitoring": false,
+                "NetworkInterfaces": [
+                    {
+                        "AssociatePublicIpAddress": true,
+                        "SubnetId": {
+                            "Ref": "subnetid"
+                        },
+                        "GroupSet": [
+                            {
+                                "Ref": "sg"
+                            }
+                        ],
+                        "DeviceIndex": "0"
+                    }
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "#!/bin/bash -ex",
+                                "sudo apt update",
+                                "sudo apt install nginx -y"
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+* For creating stack `activity3` from CLI the following command was used
+```
+aws cloudformation create-stack --stack-name 'activity3' --template-body 'file://activity3.json' --parameters "ParameterKey=ami,ParameterValue=ami-0c7217cdde317cfec" "ParameterKey=keypair,ParameterValue=my_id_rsa" "ParameterKey=sg,ParameterValue=sg-0126e482fbf873def" "ParameterKey=subnetid,ParameterValue=subnet-09be7bc355f4c0475"
 ```
 ### Activity-4 `activity4`
 
 * Create an ECS cluster
+
+=> Navigate to ECS => Create cluster => name : stackdemo => infrastructure as serverless => Create
+
+![Alt text](shots/153.PNG)
+
 * Create a task defintion
-    * image => nginx
-    * name => nginx
+
+=> Task definitions => Create new task definition => select Create new task definition
+
+![Alt text](shots/154.PNG)
+
+=> Family name : test => Infrastructure requirements => Launch type : serverless => CPU : .25vCPU => Memory : .5 GB => Container-1 => Name : nginx => Image :nginx  => Create 
+
+![Alt text](shots/155.PNG)
+![Alt text](shots/156.PNG)
+![Alt text](shots/157.PNG)
+
 * Create a service with task defintion
+
+=> select Deploy => Create Service
+
+![Alt text](shots/158.PNG)
+
+=> Existing cluster : stackdemo => Service name : nginx => Service type : Replica => Desired tasks : 1 => Create
+
+![Alt text](shots/159.PNG)
+![Alt text](shots/160.PNG)
+![Alt text](shots/161.PNG)
+![Alt text](shots/162.PNG)
